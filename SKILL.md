@@ -1,30 +1,30 @@
 ---
 name: smlight
-description: Use quando trabalhar com dispositivos SMLIGHT SLZB, SLZB-OS, coordenadores Zigbee ou Thread, integração com Home Assistant, ZHA ou Zigbee2MQTT, configuração, diagnóstico ou firmware.
+description: Use when working with SMLIGHT SLZB devices, SLZB-OS, Zigbee or Thread coordinators, Home Assistant, ZHA or Zigbee2MQTT integration, configuration, troubleshooting, or firmware.
 ---
 
 # SMLIGHT
 
-Use a documentação oficial correspondente ao modelo, hardware, firmware e versão instalados. Recursos, interfaces e procedimentos diferem entre produtos e versões; não suponha que todo dispositivo SMLIGHT execute SLZB-OS.
+Use the official documentation for the exact model, hardware, firmware, and installed version. Features, interfaces, and procedures differ across products and versions; do not assume every SMLIGHT device runs SLZB-OS.
 
-## Procedimento
+## Workflow
 
-1. Identifique modelo e revisão, firmware do sistema e do rádio, modo de operação, conexão e integração usada. Solicite os dados ausentes quando mudarem a resposta.
-2. Consulte a referência pertinente e confirme na documentação oficial da versão em uso. Diferencie o hub Zigbee integrado ao SLZB-OS de um rádio controlado por Zigbee2MQTT ou ZHA externo; identifique onde estão a rede e seus backups.
-3. Diagnostique por camadas: alimentação e rede, SLZB-OS, rádio, controlador Zigbee ou Thread, MQTT e Home Assistant. Prefira leituras e preserve senhas, tokens, chaves de rede e backups.
-4. Antes de alterar configurações, reiniciar, migrar, atualizar ou restaurar, explique destino, impacto, interrupção possível, backup e recuperação; peça confirmação explícita. Confira o resultado após a operação. Não suponha que downgrade ou migração de rede sejam possíveis.
+1. Identify the model and hardware revision, system and radio firmware, operating mode, connection, and integration. Ask for missing details when they change the answer.
+2. Read the relevant reference and confirm details in the official documentation for the installed version. Distinguish the SLZB-OS integrated Zigbee Hub from a radio managed by external Zigbee2MQTT or ZHA; identify where the network state and backups are stored.
+3. Diagnose by layer: power and network, SLZB-OS, radio, Zigbee or Thread controller, MQTT, and Home Assistant. Prefer read-only checks and protect passwords, tokens, network keys, and backups.
+4. Before changing settings, restarting, migrating, updating, or restoring, explain the target, impact, possible outage, backup, and recovery plan; obtain explicit confirmation. Verify the result afterward. Do not assume firmware downgrade or network migration is supported.
 
-| Tarefa | Referência |
+| Task | Reference |
 | --- | --- |
-| Modelo, rádios, modos, Zigbee, Thread e Home Assistant | [Dispositivos e integração](reference/dispositivos.md) |
-| Interface web, MQTT, automação e Ansible | [Gestão e automação](reference/gestao.md) |
-| Diagnóstico, backups, recuperação e firmware | [Operação e diagnóstico](reference/operacao.md) |
+| Models, radios, modes, Zigbee, Thread, and Home Assistant | [Devices and integrations](reference/devices.md) |
+| Web interface, MQTT, automation, and Ansible | [Management and automation](reference/management.md) |
+| Troubleshooting, backups, recovery, and firmware | [Operations and troubleshooting](reference/operations.md) |
 
-## Cuidados
+## Safety notes
 
-- Um rádio não deve ser controlado simultaneamente por múltiplos clientes; confirme a topologia antes de conectar outro controlador.
-- Alterações de rede, rádio, canal ou identidade Zigbee podem interromper o acesso ou exigir migração; valide o procedimento para o cenário exato.
-- Diferencie firmware do SLZB-OS, firmware do rádio e ESPHome; atualização de um não implica atualização dos demais.
-- Não invente endpoints ou parâmetros, nem trate a API interna da interface web como contrato estável. Se não houver método documentado para a versão, informe a limitação.
+- Do not let multiple clients control the same radio at the same time; confirm the topology before connecting another controller.
+- Network, radio, channel, or Zigbee identity changes can interrupt access or require migration; verify the procedure for the exact scenario.
+- Distinguish SLZB-OS firmware, radio firmware, and ESPHome; updating one does not update the others.
+- Do not invent endpoints or parameters, or treat the web interface's internal API as a stable contract. If the installed version has no documented method, state the limitation.
 
-Fontes: [manuais SMLIGHT](https://smlight.tech/support/manuals/), [manual do Zigbee Hub](https://smlight.tech/support/manuals/books/slzb-os/chapter/zigbee-hub), [API MQTT](https://smlight.tech/support/manuals/books/slzb-os/page/mqtt-api) e [ESPHome SMLIGHT](https://github.com/smlight-tech/slzb-esphome).
+Sources: [SMLIGHT manuals](https://smlight.tech/support/manuals/), [Zigbee Hub manual](https://smlight.tech/support/manuals/books/slzb-os/chapter/zigbee-hub), [MQTT API](https://smlight.tech/support/manuals/books/slzb-os/page/mqtt-api), and [SMLIGHT ESPHome](https://github.com/smlight-tech/slzb-esphome).
