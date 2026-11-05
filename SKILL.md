@@ -29,5 +29,7 @@ Use the official documentation for the exact model, hardware, firmware, and inst
 - Do not invent endpoints or parameters, or treat the web interface's internal API as a stable contract. If the installed version has no documented method, state the limitation.
 - If compatibility, the interface, or a reliable state read is unconfirmed, do not deliver a ready-to-run playbook, module, or script. Ask for the missing data first. A draft is acceptable only when labeled non-executable, with unknown values left unresolved instead of filled with plausible placeholders, and without insecure defaults such as credentials over unencrypted transport or a secret that reaches logs.
 - Status endpoints that answer without authentication are a reason to keep the device on a trusted network, not permission to expose it. Never expose the web interface directly to the internet.
+- The web interface may have no administrator password configured. Check it before relying on the interface as a control, and enable one when it is missing.
+- Restarting may take effect on a single click, with no confirmation dialog. Treat the Reboot control as destructive: confirm it with the operator before interacting with it, and never include it in an automated sequence that assumes a prompt.
 
 Sources: [SMLIGHT manuals](https://smlight.tech/support/manuals/), [Zigbee Hub manual](https://smlight.tech/support/manuals/books/slzb-os/chapter/zigbee-hub), [MQTT API](https://smlight.tech/support/manuals/books/slzb-os/page/mqtt-api), and [SMLIGHT ESPHome](https://github.com/smlight-tech/slzb-esphome).

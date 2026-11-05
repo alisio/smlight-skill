@@ -8,6 +8,8 @@ The web interface's internal API is not a stable public contract. If an operatio
 
 Restrict management access to a trusted network and protect credentials and keys. Confirm that the version supports TLS before transmitting secrets; if it does not, consider an appropriate secure tunnel instead of exposing the interface directly to the internet.
 
+Check whether the web interface password is enabled and enable it when it is missing. Browser sign-in and API authentication can be separate flows: a client that authenticates successfully against the API may still land on the login page in a browser, and the form may require both a user name and a password. Confirm both for the installed version instead of assuming one covers the other. Enabling or changing the password is itself a security change; see [operations and troubleshooting](operations.md) for its effect on the controller link.
+
 ## Python
 
 [pysmlight](https://github.com/smlight-tech/pysmlight) describes itself as a Python library for SLZB-06 network coordinators; its code includes authentication, reads, commands, settings, and firmware actions. Check model compatibility, the installed library and firmware versions, and their supported operations before use; do not assume support for other models. Its use of web interfaces does not make those interfaces stable public contracts. Prefer reads, protect credentials and transport, obtain explicit confirmation for changes, and verify the resulting state without assuming idempotency.
