@@ -10,6 +10,17 @@ Restrict management access to a trusted network and protect credentials and keys
 
 Check whether the web interface password is enabled and enable it when it is missing. Browser sign-in and API authentication can be separate flows: a client that authenticates successfully against the API may still land on the login page in a browser, and the form may require both a user name and a password. Confirm both for the installed version instead of assuming one covers the other. Enabling or changing the password is itself a security change; see [operations and troubleshooting](operations.md) for its effect on the controller link.
 
+## Reverse-engineered web interface (observation, not a contract)
+
+The following was observed on an SLZB-06p7U running SLZB-OS 3.4.5.dev0. It comes from inspecting the web interface, not from manufacturer documentation, and it is not a stable public contract. Re-verify it on the installed firmware before relying on it; treat a mismatch as a reason to stop and re-read the interface, not to adjust values by trial.
+
+- Reads come from `GET /api2?action=0&page=<pageId>`. The configuration is returned in the `respValuesArr` response header as JSON, not in the page body. Servers send the name in camel case, but HTTP clients may normalize header names to lower case; match it case-insensitively.
+- Writes go to `POST /settings/saveParams` as `application/x-www-form-urlencoded`, carrying `pageId` plus the form fields of that page. An unchecked checkbox is sent as `off`, not omitted. A request without `pageId` returns HTTP 500. The response lists the fields that changed and whether a reboot is required; it does not prove the value was applied, so read the page again.
+- Some select fields invert key and value in the read: the serial baud rate appears as `"115200": true` with no `baud` field. Those values cannot be compared, so resend them whenever the page is written.
+- `/ha_info` is the documented identification endpoint and reports model, system firmware, hardware revision, radio type, and radio firmware. Confirm model and firmware version there before writing anything, and refuse to write on a version the mapping was not verified against.
+
+Pages observed: 1 radio mode and Wi-Fi bridge, 2 Ethernet and Wi-Fi networking, 3 serial port, 4 security and access point, 6 telemetry, 7 automatic update, 8 LEDs and night mode, 9 NTP, 24 SLZB-OS MQTT. Page identifiers belong to the firmware, not to the model, and may shift between versions.
+
 ## Python
 
 [pysmlight](https://github.com/smlight-tech/pysmlight) describes itself as a Python library for SLZB-06 network coordinators; its code includes authentication, reads, commands, settings, and firmware actions. Check model compatibility, the installed library and firmware versions, and their supported operations before use; do not assume support for other models. Its use of web interfaces does not make those interfaces stable public contracts. Prefer reads, protect credentials and transport, obtain explicit confirmation for changes, and verify the resulting state without assuming idempotency.
