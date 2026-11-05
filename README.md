@@ -14,7 +14,11 @@ Copy `SKILL.md` and the `reference/` directory together into a directory named `
 
 ## Usage
 
-For example, ask the agent: “Use the smlight skill to troubleshoot my SLZB coordinator without changing its configuration.” Provide the model, version, mode, and integration when available. Confirm that the client loaded the skill; availability does not guarantee automatic invocation.
+In OpenCode, invoke the skill explicitly by mentioning `@smlight`, then describe the task and provide the model, firmware version, mode, and integration when available. For example:
+
+> `@smlight` Explain how to troubleshoot my SLZB coordinator without changing its configuration.
+
+To confirm it loaded, check the conversation for a `skill` tool call with the ID `smlight` and the skill instructions added to the context. A skill appearing as available does not mean its full instructions have been loaded. Other clients may use different invocation and confirmation steps; consult their documentation.
 
 ## Updating
 
