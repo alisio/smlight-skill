@@ -22,4 +22,8 @@ Obtain confirmation before applying changes and test first in an isolated enviro
 
 Without a reliable state read, do not claim idempotency or post-change verification. Ansible check mode alone does not guarantee that an API has no side effects.
 
+When model support, the interface, or a state read is still unconfirmed, collect the missing data before writing a playbook or a custom module. Do not fill unknown values with plausible-looking placeholders and present the result as complete. If a sketch helps the conversation, mark it non-executable, keep unknown values visibly unresolved, and do not ship insecure defaults such as credentials over unencrypted HTTP.
+
+Read-only discovery comes first: confirm reachability, the management port, and the identification data the unit reports for the installed firmware, then decide whether the remaining operations are documented. Identification data alone does not prove that a library or module supports the model.
+
 Source: [Manufacturer MQTT API](https://smlight.tech/support/manuals/books/slzb-os/page/mqtt-api) and the official documentation for the installed version.
