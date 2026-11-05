@@ -8,6 +8,12 @@ The web interface's internal API is not a stable public contract. If an operatio
 
 Restrict management access to a trusted network and protect credentials and keys. Confirm that the version supports TLS before transmitting secrets; if it does not, consider an appropriate secure tunnel instead of exposing the interface directly to the internet.
 
+## Python
+
+[pysmlight](https://github.com/smlight-tech/pysmlight) describes itself as a Python library for SLZB-06 network coordinators; its code includes authentication, reads, commands, settings, and firmware actions. Check model compatibility, the installed library and firmware versions, and their supported operations before use; do not assume support for other models. Its use of web interfaces does not make those interfaces stable public contracts. Prefer reads, protect credentials and transport, obtain explicit confirmation for changes, and verify the resulting state without assuming idempotency.
+
+For Berry MQTT scripts and reconnection behavior, see [scripting and apps](scripting.md).
+
 ## Ansible automation
 
 Ansible is one automation option, not a requirement. First identify the documented management method and where the modules will run; do not assume SSH access to the device. Compare actual and desired state when the interface allows it, store secrets with an appropriate mechanism, and keep them out of logs. Explicitly state any idempotency, check-mode, and recovery limitations that cannot be verified.

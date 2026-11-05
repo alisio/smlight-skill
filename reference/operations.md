@@ -18,4 +18,8 @@ When possible, verify the backup's integrity and test restoration before making 
 
 If manuals give conflicting guidance across versions, state the uncertainty and check the exact version before acting. Channel, key, and firmware changes can affect sleeping devices or require physical intervention.
 
+## Radio firmware tools
+
+The [SMLIGHT CC flasher](https://github.com/smlight-tech/smlight-cc-flasher) targets supported Texas Instruments CC13xx/CC26xx chips; the [CC web tools](https://github.com/smlight-tech/smlight-cc-web-tools) document supported USB devices. Neither is a generic flasher for Silicon Labs EFR32 radios. Identify the exact chip, radio slot, firmware image and intended role, transport, authentication support, backup, power, outage, and recovery path before choosing a tool. Never suggest disabling authentication or using `--force` as an automatic workaround. Obtain explicit authorization before flashing, and verify the outcome. A radio reboot disrupts service and is not a default diagnostic step.
+
 Sources: [SMLIGHT manuals](https://smlight.tech/support/manuals/), release notes for the installed version, and documentation for the controller actually in use.

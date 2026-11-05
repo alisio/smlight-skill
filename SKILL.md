@@ -1,6 +1,6 @@
 ---
 name: smlight
-description: Use when working with SMLIGHT SLZB devices, SLZB-OS, Zigbee or Thread coordinators, Home Assistant, ZHA or Zigbee2MQTT integration, configuration, troubleshooting, or firmware.
+description: Use when working with SMLIGHT SLZB devices, SLZB-OS, Zigbee or Thread coordinators, Home Assistant, ZHA or Zigbee2MQTT integration, Berry scripts, SLZB-OS apps, configuration, troubleshooting, or firmware.
 ---
 
 # SMLIGHT
@@ -19,6 +19,7 @@ Use the official documentation for the exact model, hardware, firmware, and inst
 | Models, radios, modes, Zigbee, Thread, and Home Assistant | [Devices and integrations](reference/devices.md) |
 | Web interface, MQTT, automation, and Ansible | [Management and automation](reference/management.md) |
 | Troubleshooting, backups, recovery, and firmware | [Operations and troubleshooting](reference/operations.md) |
+| Berry scripts, events, and SLZB-OS apps | [Scripting and apps](reference/scripting.md) |
 
 ## Safety notes
 

@@ -1,6 +1,6 @@
 # SMLIGHT Skill
 
-A reusable agent skill for configuring, operating, integrating, and troubleshooting SMLIGHT devices and SLZB-OS. Capabilities vary by model, firmware, and operating mode; consult the applicable official documentation.
+A reusable agent skill for configuring, operating, integrating, and troubleshooting SMLIGHT SLZB devices, their radios, and SLZB-OS, including Berry scripts and SLZB-OS apps. Capabilities vary by model, firmware, and operating mode; consult the applicable official documentation.
 
 ## Installation
 
@@ -26,3 +26,8 @@ Installed copies are independent. Compare `SKILL.md` and `reference/` with the i
 - [Zigbee Hub manual](https://smlight.tech/support/manuals/books/slzb-os/chapter/zigbee-hub)
 - [SLZB-OS MQTT API](https://smlight.tech/support/manuals/books/slzb-os/page/mqtt-api)
 - [SMLIGHT ESPHome](https://github.com/smlight-tech/slzb-esphome)
+- [SLZB-OS Berry scripting](https://github.com/smlight-tech/slzb-os-scripts)
+- [SLZB-OS apps](https://github.com/smlight-tech/slzb-os-apps)
+- [Zigbee Hub devices](https://github.com/smlight-tech/slzb-os-zigbee-hub)
+- [pysmlight](https://github.com/smlight-tech/pysmlight)
+- [SMLIGHT CC flasher](https://github.com/smlight-tech/smlight-cc-flasher) and [CC web tools](https://github.com/smlight-tech/smlight-cc-web-tools)
